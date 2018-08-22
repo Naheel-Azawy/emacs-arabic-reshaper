@@ -1,0 +1,12 @@
+* Emacs Arabic Reshaper Mode
+A little workaround to reshape Arabic characters and make it look better in the terminal.
+This minor-mode was built to solve the problem stated in [[https://emacs.stackexchange.com/questions/44144/arabic-in-terminal-mode][Emacs stack exchange]].
+** Installation
+- Make sure to install the [[https://github.com/Naheel-Azawy/c-arabic-reshaper][c-arabic-reshaper]] first
+- Download arabic-reshape.el
+- add this to your init emacs file:
+#+BEGIN_SRC emacs-lisp
+(load-file "path/to/arabic-reshape.el")
+#+END_SRC
+** License
+GPL-3
