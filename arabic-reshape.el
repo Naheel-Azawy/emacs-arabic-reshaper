@@ -21,6 +21,14 @@
     (delete-trailing-whitespace)
     (goto-char loc)))
 
+(defun arabic-unshape-reshape-priv ()
+  (let ((loc (point)))
+    (shell-command
+     (concat "cat '" buffer-file-name "' | env ARRESHOPT='b' arabic-reshape")
+     (current-buffer))
+    (delete-trailing-whitespace)
+    (goto-char loc)))
+
 (defun arabic-reshape ()
   (interactive)
   (arabic-safe-save)
@@ -31,9 +39,13 @@
   (arabic-safe-save)
   (arabic-unshape-priv))
 
+(defun arabic-unshape-reshape ()
+  (interactive)
+  (arabic-safe-save)
+  (arabic-unshape-reshape-priv))
+
 (defun arabic-reshape-hook ()
-  (arabic-unshape-priv)
-  (arabic-reshape-priv)
+  (arabic-unshape-reshape-priv)
   (arabic-safe-save))
 
 (define-minor-mode arabic-reshape-mode
